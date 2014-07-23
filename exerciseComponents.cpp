@@ -20,7 +20,7 @@ int main() {
    myExercises.push_back("personStruct");
    myExercises.push_back("structPointer");
    myExercises.push_back("pointerArray");
-   myExercises.push_back("command bob tim jake sally thomas");
+   myExercises.push_back("command bob tim jake sally thomas joseph reed");
    myExercises.push_back("personClass");
    myExercises.push_back("privateVar");
    myExercises.push_back("object");

@@ -42,6 +42,8 @@ int main () {
 
    myExerciseComp.ItemSelected();
 
+   return 0;
+
 }
 
 void demonstrateComponent () {

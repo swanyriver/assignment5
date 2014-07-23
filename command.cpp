@@ -48,10 +48,14 @@ int main (int argc, char** argv) {
 
    myExerciseComp.ItemSelected();
 
+
+   return 0;
+
+
 }
 
 void demonstrateComponent () {
-   const int NUM_PERSONS = 5;
+   int NUM_PERSONS = numArgs-1;
 
    /////////////////////PART B/////////////////
    //cout << "first we will make a person with a pointer to them";
@@ -62,7 +66,7 @@ void demonstrateComponent () {
          << pointPerson->age << " years old" << endl;
 
    /////////////////////PART E/////////////////
-   person friends[NUM_PERSONS];
+   person *friends = new person[NUM_PERSONS];
 
    /////////////////////problem 3////////////////////////////////
    person *friend_pointers[NUM_PERSONS];
@@ -83,6 +87,9 @@ void demonstrateComponent () {
       /////////////////////problem 3////////////////////////////////
       cout << endl << friend_pointers[index]->name;
    }
+
+   delete[] friends;
+
 }
 
 person new_person () {
