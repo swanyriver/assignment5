@@ -27,6 +27,8 @@ using namespace std;
 
 void demonstrateComponent();
 
+
+
 int main(){
 
    string intro = "This is one Private Person!";
@@ -65,6 +67,8 @@ public:
 
 };
 
+Person *myPersonPoint; //global pointer to my person
+
 Person getPerson(){
    cout << "lets make a person";
    string pName = swansonInput::GetString( "what will that person's name: " );
@@ -72,24 +76,28 @@ Person getPerson(){
    return Person( pName, pAge);
 }
 
-void DisplayInfoAboutPerson(Person person){
-   cout << person.GetName() <<" is " << person.GetAge() << " years old" << endl;
+void DisplayInfoAboutPerson(){
+   cout << myPersonPoint->GetName() <<" is "
+         << myPersonPoint->GetAge() << " years old" << endl;
 }
-void PersonHasBirthday(Person person){
-   person.having_birthday();
+void PersonHasBirthday(){
+   myPersonPoint->having_birthday();
 }
 
 void demonstrateComponent(){
-   Person myPerson = getPerson();
+   Person realPerson = getPerson();
+   myPersonPoint = &realPerson;
 
-   Menu personMenu("What should we do with " + myPerson.GetName());
+   Menu personMenu("What should we do with " + myPersonPoint->GetName());
 
    personMenu.addItem(new GoItem(DisplayInfoAboutPerson, "Display age", ""));
    personMenu.GetLastItem()->hasIntro=false;
    personMenu.GetLastItem()->itemRepeat=false;
-   personMenu.addItem(new GoItem(PersonHasBirthday, "Have a Birthday", "Happy Birthday"));
+   personMenu.addItem(new
+         GoItem(PersonHasBirthday, "Have a Birthday", "Happy Birthday"));
    personMenu.GetLastItem()->itemRepeat=false;
 
+   personMenu.clearScreenON = false;
    personMenu.showMenu();
 
 }
