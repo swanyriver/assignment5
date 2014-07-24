@@ -95,11 +95,9 @@ void demonstrateComponent(){
 
    do{
       Person myPerson = Person(getPerson());
-      //myPeople[myPerson.GetName()] = &myPerson;
-      //myPeople.insert( std::pair<string,Person*>(myPerson.GetName(), &myPerson));
-      cout << myPerson.GetName();
+
+      //this line is very similar to a copy constructor
       myPeople[myPerson.GetName()] = new Person(myPerson.GetName(),myPerson.GetAge());
-      cout << " map has " <<  myPeople.size() << "entries";
 
    }while (swansonInput::yesNo("make another person"));
 
@@ -113,10 +111,12 @@ void demonstrateComponent(){
    for(int i=0;i<numpeople;i++){
       myPeopleArray[i] = it->second;
       it++;
-      cout << myPeopleArray[i]->GetName() <<" was added to an array" << endl;
+      //cout << myPeopleArray[i]->GetName() <<" was added to an array" << endl;
    }
 
-   for(it=myPeople.begin();it!=myPeople.end();it++) cout << it->second->GetName() << endl;
+   //this was used to test map, notice the double -> ->
+   /*for(it=myPeople.begin();it!=myPeople.end();it++)
+      cout << it->second->GetName() << endl;*/
 
    while(swansonInput::yesNo("should one of them have a birthday")){
       string birthdayName = swansonInput::GetString("who:");
