@@ -34,7 +34,7 @@ public:
 
    bool compile () {
       if ( system( compileCommand.c_str() ) == 0 ) {
-         cout << myFilename << "sucessfully compiled" << endl;
+         cout << myFilename << " sucessfully compiled" << endl;
          return true;
       } else {
          //         if ( !swansonInput::yesNo(
