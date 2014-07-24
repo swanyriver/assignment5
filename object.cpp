@@ -133,6 +133,8 @@ void demonstrateComponent(){
       }
    }
 
+   delete[] myPeopleArray;
+
 }
 
 
