@@ -94,11 +94,11 @@ void demonstrateComponent(){
 
 
    do{
-      Person myPerson = getPerson();
+      Person myPerson = Person(getPerson());
       //myPeople[myPerson.GetName()] = &myPerson;
       //myPeople.insert( std::pair<string,Person*>(myPerson.GetName(), &myPerson));
       cout << myPerson.GetName();
-      myPeople[myPerson.GetName()] = &myPerson;
+      myPeople[myPerson.GetName()] = new Person(myPerson.GetName(),myPerson.GetAge());
       cout << " map has " <<  myPeople.size() << "entries";
 
    }while (swansonInput::yesNo("make another person"));
@@ -110,18 +110,18 @@ void demonstrateComponent(){
 
    std::map<string,Person*>::iterator it=myPeople.begin();
 
-   /*for(int i=0;i<numpeople;i++){
+   for(int i=0;i<numpeople;i++){
       myPeopleArray[i] = it->second;
       it++;
       cout << myPeopleArray[i]->GetName() <<" was added to an array" << endl;
-   }*/
+   }
 
    for(it=myPeople.begin();it!=myPeople.end();it++) cout << it->second->GetName() << endl;
 
    while(swansonInput::yesNo("should one of them have a birthday")){
       string birthdayName = swansonInput::GetString("who:");
       while(myPeople.count(birthdayName)==0){
-         string birthdayName = swansonInput::GetString
+         birthdayName = swansonInput::GetString
                ("That isn't one of our friends\nwho should have a birthday:");
       }
 
