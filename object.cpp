@@ -17,7 +17,6 @@
  * *
  * ***********************************************************/
 
-
 #include <iostream>
 #include <string>
 #include <map>
@@ -28,16 +27,13 @@
 
 using namespace std;
 
-void demonstrateComponent();
+void demonstrateComponent ();
 
-
-
-int main(){
+int main () {
 
    string intro = "Lets make a lot of people!";
 
-
-   GoItem myExerciseComp(demonstrateComponent,"",intro);
+   GoItem myExerciseComp( demonstrateComponent , "" , intro );
 
    myExerciseComp.ItemSelected();
 
@@ -46,69 +42,65 @@ int main(){
 }
 
 /////////////////////////////person class//////////
-class Person{
+class Person {
 private:
    string name;
    int age;
 
 public:
 
-   Person(string pName, int pAge):name(pName),age(pAge){};
+   Person ( string pName , int pAge ) :
+         name( pName ), age( pAge ) {
+   }
 
-   void having_birthday(){
+
+   void having_birthday () {
       age++;
       cout << "Happy Birthday " << name << endl;
    }
 
-   int GetAge(){
+   int GetAge () {
       return age;
    }
 
-   string GetName(){
+   string GetName () {
       return name;
    }
 
 };
 
-
-
-Person getPerson(){
+Person getPerson () {
    cout << "lets make a person";
    string pName = swansonInput::GetString( "what will that person's name: " );
    int pAge = swansonInput::GetInt( "how old is that person: " );
-   return Person( pName, pAge);
+   return Person( pName , pAge );
 }
 
+void demonstrateComponent () {
 
-
-void demonstrateComponent(){
-
-   map<string,Person*> myPeople;
+   map<string, Person*> myPeople;
 
    //this array is unesecary to compliment our map, but for the sake of
    //exercise here it is.
    Person **myPeopleArray;
    int numpeople;
 
-
-
-
-   do{
-      Person myPerson = Person(getPerson());
+   do {
+      Person myPerson = Person( getPerson() );
 
       //this line is very similar to a copy constructor
-      myPeople[myPerson.GetName()] = new Person(myPerson.GetName(),myPerson.GetAge());
+      myPeople[myPerson.GetName()] = new Person( myPerson.GetName() ,
+            myPerson.GetAge() );
 
-   }while (swansonInput::yesNo("make another person"));
+   } while ( swansonInput::yesNo( "make another person" ) );
 
    //make dynamic object array and fill it (backwards)
    numpeople = myPeople.size();
    myPeopleArray = new Person*[numpeople];
 
+   std::map<string, Person*>::iterator it = myPeople.begin();
 
-   std::map<string,Person*>::iterator it=myPeople.begin();
-
-   for(int i=0;i<numpeople;i++){
+   for ( int i = 0 ; i < numpeople ; i++ ) {
       myPeopleArray[i] = it->second;
       it++;
       //cout << myPeopleArray[i]->GetName() <<" was added to an array" << endl;
@@ -116,19 +108,24 @@ void demonstrateComponent(){
 
    //this was used to test map, notice the double -> ->
    /*for(it=myPeople.begin();it!=myPeople.end();it++)
-      cout << it->second->GetName() << endl;*/
+    cout << it->second->GetName() << endl;*/
 
-   while(swansonInput::yesNo("should one of them have a birthday")){
-      string birthdayName = swansonInput::GetString("who:");
-      while(myPeople.count(birthdayName)==0){
-         birthdayName = swansonInput::GetString
-               ("That isn't one of our friends\nwho should have a birthday:");
+   for ( int i = 0 ; i < numpeople ; i++ ) {
+      cout << myPeopleArray[i]->GetName() << "'s age is "
+            << myPeopleArray[i]->GetAge() << endl;
+   }
+
+   while ( swansonInput::yesNo( "should one of them have a birthday" ) ) {
+      string birthdayName = swansonInput::GetString( "who:" );
+      while ( myPeople.count( birthdayName ) == 0 ) {
+         birthdayName = swansonInput::GetString(
+               "That isn't one of our friends\nwho should have a birthday:" );
       }
 
       myPeople[birthdayName]->having_birthday();
 
-      for(int i=0;i<numpeople;i++){
-         cout << myPeopleArray[i]->GetName() <<"'s age is "
+      for ( int i = 0 ; i < numpeople ; i++ ) {
+         cout << myPeopleArray[i]->GetName() << "'s age is "
                << myPeopleArray[i]->GetAge() << endl;
       }
    }
@@ -136,7 +133,4 @@ void demonstrateComponent(){
    delete[] myPeopleArray;
 
 }
-
-
-
 
