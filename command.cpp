@@ -6,14 +6,15 @@
  *
  * * Last Modification Date: 07-22-2014
  *
- * * Filename:
+ * * Filename: command.cpp
  *
  *
- * * Overview: Week 5 Exercise Component #
+ * * Overview: Week 5 Exercise Component
  * *
- * * Input:
+ * * Input: A list of friends sperated by spaces on command line
+ * * Example ./command steve jake tim bob sally
  * *
- * * Output:
+ * * Output: Will display you and your friends
  * *
  * ***********************************************************/
 
@@ -32,8 +33,10 @@ struct person {
    int age;
 };
 
+//get input to construct a person
 person new_person ();
 
+//global reference to command args
 int numArgs;
 char** arguments;
 
@@ -74,6 +77,7 @@ void demonstrateComponent () {
    cout << "now lets get their friends from the command line" << endl;
 
    ////////////////////////COMMAND.CPP///////////////////
+   ///using command line args to construct people ///////
    for ( int index = 0 ; index < NUM_PERSONS ; ++index ) {
       friends[index].name = string(arguments[index+1]);
       /////////////////////problem 3////////////////////////////////
@@ -92,6 +96,14 @@ void demonstrateComponent () {
 
 }
 
+/***********************************************************************
+ *Purpose: construct a person, using input from user
+ *
+ *Entry: none
+ *
+ *Exit: A fully constructed person
+ *
+ **********************************************************************/
 person new_person () {
    person myPerson;
    myPerson.name = swansonInput::GetString( "what will be your name: " );

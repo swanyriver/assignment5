@@ -6,14 +6,14 @@
  *
  * * Last Modification Date: 07-22-2014
  *
- * * Filename:
+ * * Filename: personStruct.cpp
  *
  *
- * * Overview: Week 5 Exercise Component #
+ * * Overview: Week 5 Exercise Component
  * *
- * * Input:
+ * * Input:age and name of person
  * *
- * * Output:
+ * * Output:info about person
  * *
  * ***********************************************************/
 
@@ -54,6 +54,14 @@ void demonstrateComponent(){
          << ourPerson.age << " years old" << endl;
 }
 
+/***********************************************************************
+ *Purpose: construct a person, using input from user
+ *
+ *Entry: none
+ *
+ *Exit: A fully constructed person
+ *
+ **********************************************************************/
 person new_person(){
    person myPerson;
    myPerson.name = swansonInput::GetString("what will be your name: ");

@@ -4,16 +4,16 @@
  *
  * * Date Created: 07-22-2014
  *
- * * Last Modification Date: 07-22-2014
+ * * Last Modification Date: 07-25-2014
  *
- * * Filename:
+ * * Filename:object.cpp
  *
  *
- * * Overview: Week 5 Exercise Component #
+ * * Overview: Week 5 Exercise Component
  * *
- * * Input:
+ * * Input:Names and ages of friends, selection for birthday
  * *
- * * Output:
+ * * Output: ages of friends
  * *
  * ***********************************************************/
 
@@ -53,22 +53,32 @@ public:
          name( pName ), age( pAge ) {
    }
 
-
+   //increment age
    void having_birthday () {
       age++;
       cout << "Happy Birthday " << name << endl;
    }
 
+   //return age
    int GetAge () {
       return age;
    }
 
+   //return name
    string GetName () {
       return name;
    }
 
 };
 
+/***********************************************************************
+ *Purpose: construct a person, using input from user
+ *
+ *Entry: none
+ *
+ *Exit: A fully constructed person
+ *
+ **********************************************************************/
 Person getPerson () {
    cout << "lets make a person";
    string pName = swansonInput::GetString( "what will that person's name: " );

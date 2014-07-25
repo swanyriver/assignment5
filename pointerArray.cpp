@@ -6,14 +6,14 @@
  *
  * * Last Modification Date: 07-22-2014
  *
- * * Filename:
+ * * Filename:pointerArray.cpp
  *
  *
- * * Overview: Week 5 Exercise Component #
+ * * Overview: Week 5 Exercise Component
  * *
- * * Input:
+ * * Input: names of persons friends
  * *
- * * Output:
+ * * Output: A list of the friends names, derefrenced from pointers
  * *
  * ***********************************************************/
 
@@ -32,6 +32,7 @@ struct person {
    int age;
 };
 
+//get input to construct a person
 person new_person ();
 
 int main () {
@@ -71,7 +72,7 @@ void demonstrateComponent () {
                   + "'s name: " );
       /////////////////////problem 3////////////////////////////////
       friend_pointers[index] = &friends[index];
-      ////or
+      ////or pointer arithmetic
       friend_pointers[index] = friends+index;
    }
 
@@ -82,6 +83,14 @@ void demonstrateComponent () {
    }
 }
 
+/***********************************************************************
+ *Purpose: construct a person, using input from user
+ *
+ *Entry: none
+ *
+ *Exit: A fully constructed person
+ *
+ **********************************************************************/
 person new_person () {
    person myPerson;
    myPerson.name = swansonInput::GetString( "what will be your name: " );

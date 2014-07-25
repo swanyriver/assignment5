@@ -4,16 +4,16 @@
  *
  * * Date Created: 07-22-2014
  *
- * * Last Modification Date: 07-22-2014
+ * * Last Modification Date: 07-25-2014
  *
- * * Filename:
+ * * Filename: privateVar.cpp
  *
  *
- * * Overview: Week 5 Exercise Component #
+ * * Overview: Week 5 Exercise Component
  * *
- * * Input:
+ * * Input: Person name and age
  * *
- * * Output:
+ * * Output: Info about person
  * *
  * ***********************************************************/
 
@@ -69,6 +69,14 @@ public:
 
 Person *myPersonPoint; //global pointer to my person
 
+/***********************************************************************
+ *Purpose: construct a person, using input from user
+ *
+ *Entry: none
+ *
+ *Exit: A fully constructed person
+ *
+ **********************************************************************/
 Person getPerson(){
    cout << "lets make a person";
    string pName = swansonInput::GetString( "what will that person's name: " );
@@ -76,10 +84,27 @@ Person getPerson(){
    return Person( pName, pAge);
 }
 
+/***********************************************************************
+ *Purpose: use accessor methods of person to display their info
+ *
+ *Entry: myPersonPoint initialized
+ *
+ *Exit: display info
+ *
+ **********************************************************************/
 void DisplayInfoAboutPerson(){
    cout << myPersonPoint->GetName() <<" is "
          << myPersonPoint->GetAge() << " years old" << endl;
 }
+
+/***********************************************************************
+ *Purpose: use mutator method of person to increment age
+ *
+ *Entry: myPersonPoint initialized
+ *
+ *Exit: person age is 1 more
+ *
+ **********************************************************************/
 void PersonHasBirthday(){
    myPersonPoint->having_birthday();
 }

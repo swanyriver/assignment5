@@ -4,16 +4,16 @@
  *
  * * Date Created: 07-22-2014
  *
- * * Last Modification Date: 07-22-2014
+ * * Last Modification Date: 07-25-2014
  *
- * * Filename:
+ * * Filename:personClass.cpp
  *
  *
- * * Overview: Week 5 Exercise Component #
+ * * Overview: Week 5 Exercise Component
  * *
- * * Input:
+ * * Input: age and name of person
  * *
- * * Output:
+ * * Output: info about person
  * *
  * ***********************************************************/
 
@@ -43,17 +43,28 @@ int main(){
 /////////////////////////////person class//////////
 class Person{
 public:
+   //public members
    string name;
    int age;
 
+   //constructor with initialization list
    Person(string pName, int pAge):name(pName),age(pAge){};
 
+   //public mutator method
    void having_birthday(){
       age++;
       cout << name << " is now " << age << " years old" << endl;
    }
 };
 
+/***********************************************************************
+ *Purpose: construct a person, using input from user
+ *
+ *Entry: none
+ *
+ *Exit: A fully constructed person
+ *
+ **********************************************************************/
 Person getPerson(){
    cout << "lets make a person";
    //I was experimenting with using these input calls as arguments

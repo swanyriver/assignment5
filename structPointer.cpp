@@ -4,16 +4,16 @@
  *
  * * Date Created: 07-22-2014
  *
- * * Last Modification Date: 07-22-2014
+ * * Last Modification Date: 07-2-2014
  *
- * * Filename:
+ * * Filename:structPointer.cpp
  *
  *
- * * Overview: Week 5 Exercise Component #
+ * * Overview: Week 5 Exercise Component
  * *
- * * Input:
+ * * Input: Names and ages for people
  * *
- * * Output:
+ * * Output: list of people and their ages
  * *
  * ***********************************************************/
 
@@ -72,6 +72,14 @@ void demonstrateComponent () {
    }
 }
 
+/***********************************************************************
+ *Purpose: construct a person, using input from user
+ *
+ *Entry: none
+ *
+ *Exit: A fully constructed person
+ *
+ **********************************************************************/
 person new_person () {
    person myPerson;
    myPerson.name = swansonInput::GetString( "what will be your name: " );
