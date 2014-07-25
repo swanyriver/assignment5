@@ -72,7 +72,7 @@ public:
 Person getPerson () {
    cout << "lets make a person";
    string pName = swansonInput::GetString( "what will that person's name: " );
-   int pAge = swansonInput::GetInt( "how old is that person: " );
+   int pAge = swansonInput::GetInt( "how old is that person: ", 0 );
    return Person( pName , pAge );
 }
 

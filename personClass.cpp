@@ -61,7 +61,7 @@ Person getPerson(){
    //called first.
    //this could easily be changed but i am leaving it as an example for myself
    return Person( swansonInput::GetString( "what will that person's name: " ),
-         swansonInput::GetInt( "how old is that person: " ));
+         swansonInput::GetInt( "how old is that person: " , 0));
 }
 
 void demonstrateComponent(){

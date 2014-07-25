@@ -85,7 +85,7 @@ void demonstrateComponent () {
 person new_person () {
    person myPerson;
    myPerson.name = swansonInput::GetString( "what will be your name: " );
-   myPerson.age = swansonInput::GetInt( "what is your age: " );
+   myPerson.age = swansonInput::GetInt( "what is your age: ",0 );
 
    return myPerson;
 }
