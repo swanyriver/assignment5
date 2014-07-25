@@ -6,4 +6,6 @@ BIN*
 
 template.cpp
 
+*.odt
+
 FUN*
